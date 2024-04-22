@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</head>
+<style>
+    body{
+        background-color: gray;
+    }
+    .container{
+        background-color: gray;
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border: 5px solid white;
+    }
+    #select_m{
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: aqua;
+    }
+    #difficulty{
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: aqua;
+    }
+    #startbtn{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 400px;
+        height: 400px;
+    }
+    #h1{
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: -1;
+    
+    }
+    .container:hover{
+       
+        box-shadow: inset indianred 900px 0px 0 10px ;
+        transition: 0.5s;
+        cursor: pointer;
+    
+    }
+</style>
+<script>
+    function set(){
+        document.getElementById('container').style.visibility='visible'
+        document.getElementById('startbtn').style.visibility='hidden'
+        let m7=new Audio('./media/m7.mp3')
+        m7.play()
+    }
+    let d,t
+    function select_type(){
+        t=document.getElementById('select_m').value
+        document.getElementById('method').innerHTML=t.toString()
+    }
+    function select(){
+        d=document.getElementById('difficulty').value
+        document.getElementById('dresult').innerHTML=d.toString()
+    }
+    
+    function start(){
+        let m3=new Audio('./media/m3.mp3')
+        m3.play()
+        let q=new Object()
+        q[1]='理想型是什麼樣的男生/女生'
+        q[2]='你有沒有假裝喜歡你收到的禮物'
+        q[3]='最喜歡的課'
+        q[4]='你曾經被同性的人吸引過嗎？'
+        q[5]='你練習過照鏡子接吻嗎？'
+        q[6]="你覺得這個房間裡誰穿得最糟糕"
+        q[7]='如果你可以嫁給學校的一位老師，你會選擇誰'
+        q[8]='你的初吻是幾歲，被誰奪取的?'
+        q[9]='你有作弊過嗎'
+        q[10]="在現場所有人中，你看哪位異性同學最喜歡?"
+        q[11]='我在你眼里什麼樣?(可以是上一位玩家，由決定)'
+        q[12]='你最愿意和在場哪個異性私奔?'
+        q[101]='伏地挺身30下'
+        q[102]='像鴨子一樣嘎嘎直到你的下一個回合'
+        q[103]='給一個一年沒聯繫的人發消息'
+        q[104]='無音樂跳舞 1 分鐘'
+        q[105]='與一位異性十指相扣，對視10秒'
+        q[106]='站在你家門外，向下一分鐘經過的每個人揮手'
+        q[107]='快速旋轉五次，然後嘗試直線行走'
+        q[108]='扭動一分鐘'
+        q[109]='僅使用您的肘部，上傳 Facebook 狀態'
+        q[110]='打開你的 Instagram ，並為你前任的每篇帖子點贊'
+        q[111]='只用腳趾剝香蕉皮'
+        q[112]='大聲唸出你的手機瀏覽器歷史紀錄'
+        t=document.getElementById('select_m').value
+
+        if(t==0){
+            d=document.getElementById('difficulty').value
+        if(d==1){
+            let n=Math.floor(Math.random()*4)+1
+        document.getElementById('q').innerHTML=q[n]
+        }else if(d==2){
+            let n=Math.floor(Math.random()*4)+5
+            
+            document.getElementById('q').innerHTML=q[n]
+        }else if(d==3){
+            let n=Math.floor(Math.random()*4)+9
+           
+            document.getElementById('q').innerHTML=q[n]
+        }
+        }
+        
+        else if(t==100){
+            d=document.getElementById('difficulty').value
+        if(d==1){
+            let n=Math.floor(Math.random()*4)+101
+        document.getElementById('q').innerHTML=q[n]
+        }else if(d==2){
+            let n=Math.floor(Math.random()*4)+105
+            
+            document.getElementById('q').innerHTML=q[n]
+        }else if(d==3){
+            let n=Math.floor(Math.random()*4)+109
+           
+            document.getElementById('q').innerHTML=q[n]
+        }
+        }
+        
+        
+    }
+    
+</script>
+<body>
+    <button class="btn btn-primary" onclick="set()" id="startbtn">開始真心話大冒險</button>
+    <div class="container" id="container" style="visibility: hidden;">
+        <h1 id="q" align="center" >question</h1>
+    
+    <div class="select">
+        <select name="" id="select_m" onchange="select_type()"  >
+        <option value="">選擇真心話或大冒險</option>
+        <option value="0">真心話</option>
+        <option value="100">大冒險</option>
+    </select>
+
+    <select name="" id="difficulty" onchange="select()"  >
+        <option value="">選擇一個難度</option>
+        <option value="1">簡單</option>
+        <option value="2">困難</option>
+        <option value="3">地獄</option>
+    </div>
+    
+        
+        
+    </select>
+    
+    
+    
+    <h1 id="h1">level<span id="dresult" style="color: yellow; font-size: 80px;"  ></span></h1>
+    <br>
+    <button class="btn btn-primary" onclick="start()" style="position: absolute;  left: 50%; transform: translate(-50%,0); top: 80%;height: 60px; width: 80px; font-size: 25px;">出題</button>
+    </div>
+    
+    
+</body>
+</html>
